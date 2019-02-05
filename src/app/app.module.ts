@@ -9,6 +9,8 @@ import { StoreModule } from '@ngrx/store';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     BrowserModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot([]),
+    HttpClientModule,
     AppRoutingModule,
   ],
   providers: [],
