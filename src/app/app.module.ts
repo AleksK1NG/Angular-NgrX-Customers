@@ -12,6 +12,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 
+import { CustomSerializer } from './shared/utils';
+import { routerReducer, RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,13 +23,16 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({
+      router: routerReducer
+    }),
+    StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([]),
     HttpClientModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
