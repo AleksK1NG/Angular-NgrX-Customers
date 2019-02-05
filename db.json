@@ -13,6 +13,13 @@
       "address": "893 Main Voulevard",
       "membership": "Pro",
       "id": 2
+    },
+    {
+      "name": "Alexander",
+      "phone": "+79017381257",
+      "address": "Moscow",
+      "membership": "Platinum",
+      "id": 3
     }
   ]
 }
